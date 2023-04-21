@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StyledSwitcher from './StyledSwitcher'
 import StyledSwitcherThumb from './StyledSwitcherThumb'
 import StyledSwitcherLabel from './StyledSwitcherLabel'
@@ -10,9 +10,9 @@ import {
 } from '../../domain/utils'
 
 const Switcher: React.FC<SwitcherProps> = ({ ...props }) => {
-    const [ checked, setChecked ] = useState<boolean | null>(false)
-
     const {
+        onClick,
+        checked = false,
         text = '',
         size = 'medium',
         variant = 'primary',
@@ -44,9 +44,8 @@ const Switcher: React.FC<SwitcherProps> = ({ ...props }) => {
         } }
     }
 
-    const handleClick = (event: React.SyntheticEvent) => {
-        event.preventDefault()
-        if(!disabled) setChecked(!checked)
+    const handleClick = () => {
+        if(!disabled) onClick(!checked)
     }
 
     return (

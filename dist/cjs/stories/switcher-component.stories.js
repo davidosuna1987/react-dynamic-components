@@ -38,6 +38,8 @@ exports.default = {
 const Template = (args) => (react_1.default.createElement(switcher_1.default, Object.assign({ "data-testid": "switcher" }, args)));
 exports.SwitcherStory = Template.bind({});
 exports.SwitcherStory.args = {
+    onClick: (checked) => { },
+    checked: false,
     text: '',
     size: 'large',
     variant: 'primary',

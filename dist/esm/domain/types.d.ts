@@ -68,7 +68,8 @@ export interface SelectProps {
     id?: string;
 }
 export interface SwitcherProps {
-    value?: string | number | boolean | null;
+    onClick: (value: boolean) => void;
+    checked: boolean;
     size: SizesTypes;
     variant: SwitcherTypes;
     withShadow?: boolean;

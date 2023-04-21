@@ -9,15 +9,14 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useState } from 'react';
+import React from 'react';
 import StyledSwitcher from './StyledSwitcher';
 import StyledSwitcherThumb from './StyledSwitcherThumb';
 import StyledSwitcherLabel from './StyledSwitcherLabel';
 import { getShadowProps, getSwitcherSizeProps, getVariantColor, } from '../../domain/utils';
 const Switcher = (_a) => {
     var props = __rest(_a, []);
-    const [checked, setChecked] = useState(false);
-    const { text = '', size = 'medium', variant = 'primary', styles = {}, className = '', disabled = false, bgColor = '', thumbColor = '', withShadow = false, } = props;
+    const { onClick, checked = false, text = '', size = 'medium', variant = 'primary', styles = {}, className = '', disabled = false, bgColor = '', thumbColor = '', withShadow = false, } = props;
     let _style = {};
     const backgroundStyle = { backgroundColor: getVariantColor(variant) };
     if (size)
@@ -35,10 +34,9 @@ const Switcher = (_a) => {
             opacity: 0.5,
         });
     }
-    const handleClick = (event) => {
-        event.preventDefault();
+    const handleClick = () => {
         if (!disabled)
-            setChecked(!checked);
+            onClick(!checked);
     };
     return (React.createElement(StyledSwitcher, { "data-testid": "switcher", className: className, onClick: handleClick, disabled: disabled },
         React.createElement("input", { type: "checkbox", "true-value": "true", value: checked ? 'true' : 'false', disabled: disabled }),
